@@ -1,0 +1,61 @@
+<div class="relative">
+  <section>
+    <div *ngFor="let featureGroup of featureGroups">
+      <div class="bg-gray-200 cursor-pointer h-42 p-2">{{featureGroup.featureGroupCaption}}</div>
+      <ng-container *ngIf="!featureGroup.visible">
+        <div *ngFor="let feature of featureGroup.features" class="w-full h-42">
+          <div class="inline-block w-2/5 h-42 align-top p-2 whitespace-nowrap text-ellipsis overflow-hidden">
+            {{feature.featureCaption}}</div>
+          <!-- <div class="inline-block w-3/5 h-42 overflow-auto">
+            <div class="inline-block w-auto whitespace-nowrap">
+              <div *ngFor="let featureValue of feature.featureValues"
+                class="inline-block p-2 h-42 align-top w-140 whitespace-nowrap text-ellipsis overflow-hidden">
+  
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </ng-container>
+    </div>
+  </section>
+
+  <section class="absolute top-0 left-0 w-full overflow-auto">
+    <div *ngFor="let featureGroup of featureGroups">
+      <div class="cursor-pointer h-42 p-2" (click)="toggleSectionGroup(featureGroup)"></div>
+      <ng-container *ngIf="!featureGroup.visible">
+        <div *ngFor="let feature of featureGroup.features" class="w-full h-42 whitespace-nowrap">
+          <div class="inline-block w-2/5 h-42 align-top p-2 whitespace-nowrap text-ellipsis overflow-hidden">
+          </div>
+          <div class="inline-block h-42 overflow-auto">
+            <div class="inline-block w-auto whitespace-nowrap">
+              <div *ngFor="let featureValue of feature.featureValues"
+                class="inline-block p-2 border-1 h-42 align-top w-140 whitespace-nowrap text-ellipsis overflow-hidden bg-white">
+                {{featureValue.featureValue}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+
+  <section class="absolute top-0 left-0 z-10 w-2/5">
+    <div *ngFor="let featureGroup of featureGroups">
+      <div class="cursor-pointer h-42 p-2"></div>
+      <ng-container *ngIf="!featureGroup.visible">
+        <div *ngFor="let feature of featureGroup.features" class="w-full h-42">
+          <div class="inline-block w-full h-42 align-top p-2 whitespace-nowrap text-ellipsis overflow-hidden bg-white">
+            {{feature.featureCaption}}</div>
+          <!-- <div class="inline-block w-3/5 h-42 overflow-auto">
+            <div class="inline-block w-auto whitespace-nowrap">
+              <div *ngFor="let featureValue of feature.featureValues"
+                class="inline-block p-2 h-42 align-top w-140 whitespace-nowrap text-ellipsis overflow-hidden">
+  
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </ng-container>
+    </div>
+  </section>
+</div>

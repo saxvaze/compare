@@ -1,0 +1,17 @@
+<section class="absolute top-0 left-0 w-full">
+  <div *ngFor="let featureGroup of featureGroups">
+    <div class="bg-gray-200 cursor-pointer h-42 p-2">{{featureGroup.featureGroupCaption}}</div>
+    <div *ngFor="let feature of featureGroup.features" class="w-full h-42 whitespace-nowrap">
+      <div class="inline-block w-2/5 h-42 align-top p-2 whitespace-nowrap text-ellipsis overflow-hidden">
+        {{feature.featureCaption}}</div>
+      <div class="inline-block w-3/5 h-42 overflow-auto">
+        <div class="inline-block w-auto whitespace-nowrap">
+          <div *ngFor="let featureValue of feature.featureValues"
+            class="inline-block p-2 border-1 h-42 align-top w-140 whitespace-nowrap text-ellipsis overflow-hidden bg-white">
+            {{featureValue.featureValue}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
